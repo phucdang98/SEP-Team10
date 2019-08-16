@@ -42,7 +42,7 @@ if(isset($_POST['recover_password'])){
             $message .= "<a href='http://www.westerncashh.com/recover.php?token=$token&utm_mail=$email'>Recover password</a>";
             $message .= "If you didn't make this request, just ignore this message.\r\n\r\nStay Safe!";
             $msg = wordwrap($message,70,"\r\n");
-            $from = "support@westerncashh.com";
+            $from = "";
 
             if(mail($to, $subject, $msg,$from)){
                 $msgs = urlencode("A password recovery link has been sent to your email address. Open the link to recover your password");

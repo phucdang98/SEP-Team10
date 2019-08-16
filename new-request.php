@@ -30,25 +30,11 @@ if($result->num_rows > 0){
 
         case "sick": $type = "Nghỉ bệnh";
         break;
-        case "casual":$type = "Nghỉ thường nhật";
+        case "maternity":$type = "Nghỉ thai sản";
         break;
-        case "annual": $type = "Nghỉ định kỳ";
-        break;
-        case "study": $type = "Nghỉ để đào tạo";
+        case "study": $type = "Nghỉ tập huấn";
         break;
         case "emergency": $type = "Nghỉ Khẩn cấp";
-        break;
-        case "special": $type = "Nghỉ đặc biệt";
-        break;
-        case "examinations": $type = "Nghỉ làm kiểm tra";
-        break;
-        case "sports": $type = "Nghỉ tham gia thể thao";
-        break;
-        case "absense": $type = "Vắng mặt";
-        break;
-        case "short_embark_disembark": $type = "Nghỉ ngắn hạn";
-        break;
-        case "long_embark_disembark": $type = "Nghỉ dài hạn";
         break;
         default : "Unknown";
         break;

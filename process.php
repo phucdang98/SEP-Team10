@@ -331,17 +331,17 @@ if(isset($_POST['register'])){
             
                $firstname = ucfirst($firstname);
                
-               $to = "$email";
+               $to = "phucdang17798@gmail.com";
                
                $subject = "LEAVE HAS BEEN ACCEPTED";
                
-               $raw_message = "Congratulations $firstname!\n\\tYour leave application with Leave ID 
+               $raw_message = "Congratulations $firstname!\n\\Your leave application with Leave ID 
                       $leave_id has been accepted. This means you can now proceed on enjoying your 
                       leave days.n\t\t\tBest Wishes!";
                
                $message = wordwrap($raw_message, 70, "\n\t");
                       
-               $from = "admin@leavemanager.com";
+               $from = "phucdang17798@gmail.com";
                
                if(mail($to, $subject, $message, $from)){
                    

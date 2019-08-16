@@ -88,7 +88,8 @@ if(isset($_POST['accept'])){
                
                $msg = wordwrap($message,70,"\r\n");
                       
-               $from = "HR: <hr@leavemanager.com>";
+               $from = "HR: <phucdang17798@gmail.com>";
+               
                
                if(mail($to, $subject, $msg, $from)){
                     
@@ -191,8 +192,9 @@ if(isset($_POST['accept'])){
                  
                $msg = wordwrap($message,70,"\r\n");
                       
-               $from = "HR: <hr@leavemanager.com>";
-               
+               $from = "";
+               mail(to, subject, message);
+              
                if(mail($to, $subject, $msg, $from)){
                                       
                     $msg = urlencode("Leave has been rejected");

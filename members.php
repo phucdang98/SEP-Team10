@@ -5,10 +5,9 @@ if(session_id() == ""){
     redirect_user("login.php");
 }
 
-$members = array("Alhassan Kamil"=>"FMS/2173/15","Abdul-Hamid Adnan"=>"FMS/0002/16",
-    "Anane Foster"=>"FMS/2181/15","Odzeyem Evans"=>"FMS/2013/14",
-        "Anane Prince"=>"FMS/2182/15","Bello Olaniyi Y."=>"FMS/1851/14","Alhassan Adija"=>"FMS/0004/16",
-    "Alezumah Eric"=>"FMS/2171/15","Agyeman Gyan"=>"FMS/2160/15");
+$members = array("Phúc Đặng"=>"T160114","Trường Đạo"=>"...",
+    "Quốc Nghị"=>"...","Quang Minhh"=>"...",
+        "Hoàng Tài"=>"...");
 ?>
 <div class="container my-5">
     <div class="card">

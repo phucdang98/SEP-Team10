@@ -31,11 +31,7 @@ if(isset($_SESSION['admin-user']) && $_SESSION['admin-user'] !== ""){
 
     if(isset($_GET['tab']) && $_GET['tab'] == 1){
 
-        $leave_types = ['annual'=>"Nghỉ thường nhật",'sick'=>"Nghỉ bệnh",'study'=>'Nghỉ để đào tạo','emergency'=>'Nghỉ khẩn cấp',
-        'casual'=>'Nghỉ thường nhật','special'=>'Nghỉ phép đặc biệt','examinations'=>'Nghỉ để kiểm tra',
-        'sports'=>'Nghỉ vì tham gia giải','absense'=>'Nghỉ vì chấn thương',
-        'short_embark_disembark'=>'Nghỉ ngắn hạn',
-        'long_embark_disembark'=>'Nghỉ dài hạn'];
+        $leave_types = ['sick'=>"Nghỉ bệnh",'maternity'=>'Nghỉ thai sản','study'=>'Nghỉ tập huấn','emergency'=>'Nghỉ đột xuất'];
     
         echo "<h1 class='text-center hide'>New Leave Type</h1>
 

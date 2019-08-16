@@ -17,10 +17,8 @@ $results = array();
 /******************** TO BE ACTIVATED BY ADMINISTRATOR *************************/
 
 $query = "CREATE TABLE IF NOT EXISTS leaves(id INT NOT NULL AUTO_INCREMENT
-    PRIMARY KEY, leave_id BIGINT NOT NULL UNIQUE, leave_type ENUM('annual',
-    'sick','maternity','paternity','study','emergency','casual','special',
-    'examinations','sports','absense','short_embark_disembark',
-    'long_embark_disembark') NOT NULL, allowed_days BIGINT NOT NULL,
+    PRIMARY KEY, leave_id BIGINT NOT NULL UNIQUE, leave_type ENUM(
+    'sick','maternity''study','emergency') NOT NULL, allowed_days BIGINT NOT NULL,
     current_days INT NOT NULL, allowed_monthly_days BIGINT NOT NULL,
     for_staff_level VARCHAR(200) NOT NULL,auto_update BIGINT NOT NULL)";
 

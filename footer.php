@@ -9,7 +9,6 @@
 
             <li><a href="about.php">About Leave Manager</a></li>
 
-            <li><a href="sitemap.php">Sitemap</a></li>
 
         </ul>
 
@@ -22,7 +21,7 @@
 
             <li><a href="members.php">Group Members</a></li>
 
-            <li><a href="tutor.php">About Lecturer</a></li>
+
 
         </ul>
 
