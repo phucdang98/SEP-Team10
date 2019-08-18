@@ -23,7 +23,7 @@ if(session_id() !== ""){
 <head>
 <meta charset="utf-8"/>
 <title></title>
-<meta name="author" content="Group One">
+<meta name="author" content="">
 
 <?php require_once('styles.php');?>
 

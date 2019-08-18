@@ -11,11 +11,11 @@ if(isset($_POST['new_leave'])){
         include("leave-types.php");
         
         $leave_type = in_array(strip_tags($_POST['leave_type']),$arr) ? strip_tags($_POST['leave_type']):
-            $error[] = urlencode("Invalid leave type");
+            $error[] = urlencode("Không có dữ liệu kiểu nghỉ");
         
     }else{
         
-        $error[] = urlencode("Leave type is not chosen");
+        $error[] = urlencode("Kiểu nghỉ chưa được chọn");
     }
     
     
@@ -23,34 +23,34 @@ if(isset($_POST['new_leave'])){
         
         
         $for_staff_level = is_string($_POST['staff_level']) ? strip_tags($_POST['staff_level']):
-            $error[] = urlencode("Invalid staff level");
+            $error[] = urlencode("Không có dữ liệu nhân viên");
         
     }else{
         
-        $error[] = urlencode("Staff level must be selected");
+        $error[] = urlencode("Cấp nhân viên phải được chọn");
     }
     
-    $leave_id = var_set($_POST['leave_id']) ? intval($_POST['leave_id']) :$error[] = urlencode("An error occurred. Try again");
+    $leave_id = var_set($_POST['leave_id']) ? intval($_POST['leave_id']) :$error[] = urlencode("Có lỗi. Thử lại");
     
     if(var_set($_POST['allowed_days'])){
     
-        $allowed_days = is_numeric($_POST['allowed_days']) ? $_POST['allowed_days']: $error[] = urldecode("Allowed days must be a number");
+        $allowed_days = is_numeric($_POST['allowed_days']) ? $_POST['allowed_days']: $error[] = urldecode("Số ngày nghỉ phải là số");
         
     }else{
-        $error[] = urlencode("Allowed days must not be blank");
+        $error[] = urlencode("Số ngày nghỉ không được bỏ trống");
     }
     
     if(var_set($_POST['allowed_monthly_days'])){
   
         $allowed_monthly_days = is_numeric($_POST['allowed_monthly_days']) ? $_POST['allowed_monthly_days']: 
-            $error[] = urldecode("Allowed monthly days is not a number");
+            $error[] = urldecode("Số ngày nghỉ trong tháng không phải là số");
         
     }else{
-        $error[] = urlencode("Please enter allowed monthly days");
+        $error[] = urlencode("Hãy nhập số ngày nghỉ");
     }
     
     $auto_date = var_set($_POST['auto_update']) ? intval($_POST['auto_update']): 
-        $error[] = urlencode("There is an error. Try again");
+        $error[] = urlencode("Có lỗi. Thử lại!");
     
     $result = $db_con->query("SELECT * FROM leaves WHERE leave_type = '$leave_type' 
             AND for_staff_level = '$for_staff_level'");
@@ -59,7 +59,7 @@ if(isset($_POST['new_leave'])){
     
     if($rows == 1){
         
-        $error[] = urlencode("Leave type already exists");
+        $error[] = urlencode("Kiểu nghỉ đã tồn tại");
     }
     
     if(!$error){
@@ -75,12 +75,12 @@ if(isset($_POST['new_leave'])){
         
         if($db_con->affected_rows == 1){
             
-            $msg = urlencode("Leave created successfully");
+            $msg = urlencode("Tạo thành công");
             redirect_user("admin.php?tab=1&msg=$msg");
 
         }else{
             
-            $error = urlencode("Leave could not be created ".$db_con->error);
+            $error = urlencode("Tạo thất bại ".$db_con->error);
             redirect_user("admin.php?tab=1&error=$error");
         }
         

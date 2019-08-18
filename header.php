@@ -46,33 +46,33 @@ if(isset($_SESSION['admin-user']) && $_SESSION['admin-user'] !== ""){
 
             <li class="nav-item">
                 <a class="nav-link" href="admin.php">
-                <i class="fa fa-cog"></i> Dashboard</a>
+                <i class="fa fa-cog"></i> Trang chính</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?tab=3">
-                <i class="fa fa-refresh"></i> Pending Leaves</a>
+                <i class="fa fa-refresh"></i> Duyệt đơn</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?tab=1">
-                <i class="fa fa-plus"></i> New Leave Type</a>
+                <i class="fa fa-plus"></i> Tạo kiểu nghỉ phép mới</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?tab=5">
-                <i class="fa fa-arrows"></i> Assign Supervisor</a>
+                <i class="fa fa-arrows"></i> Cấp quyền quản lý</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?tab=4">
-                <i class="fa fa-user-secret"></i> My Account</a>
+                <i class="fa fa-user-secret"></i> Tài khoản của tôi</a>
             </li>
 
             <li class="nav-item">
                 <a href="logout.php" class="nav-link">
                     <i class="fa fa-sign-out"></i>
-                    Logout
+                    Đăng xuất
                 </a>
             </li>
 POP;
@@ -84,21 +84,21 @@ POP;
             <li class="nav-item">
 
                 <a class="nav-link" href="dashboard.php">
-                <i class="fa fa-cog"></i> Dashboard</a>
+                <i class="fa fa-cog"></i> Trang chính</a>
 
             </li>
 
             <li class="nav-item">
 
                 <a class="nav-link" href="dashboard.php?tab=1">
-                <i class="fa fa-calendar"></i> Leaves</a>
+                <i class="fa fa-calendar"></i> Lịch sử xin nghỉ</a>
 
             </li>
 
             <li class="nav-item">
 
                 <a class="nav-link" href="dashboard.php?tab=4">
-                <i class="fa fa-user-secret"></i> My Account</a>
+                <i class="fa fa-user-secret"></i> Tài khoản của tôi</a>
 
             </li>
 
@@ -138,7 +138,7 @@ POP;
 
             echo '<li class="nav-item">
                     <a class="nav-link" href="/LeaveManager/admin.php?tab=1">
-                    <i class="fa fa-arrows-alt"></i> Recommend Pending</a>
+                    <i class="fa fa-arrows-alt"></i> Duyệt đơn</a>
                 </li>';
 
             if(file_exists($user_dir)){
@@ -154,15 +154,15 @@ POP;
             }
 
             echo "<li class='nav-item'><a href='logout.php' class='nav-link'>"
-              ."<i class='fa fa-sign-out'></i> Logout</a></li>";
+              ."<i class='fa fa-sign-out'></i> Đăng xuất</a></li>";
 
         }else {
 
             echo "<li class='nav-item'><a href='index.php' class='nav-link'>"
-              ."<i class='fa fa-sign-in'></i> Login</a></li>
+              ."<i class='fa fa-sign-in'></i> Đăng nhập</a></li>
 
             <li class='nav-item'><a href='register.php' class='nav-link'>"
-              ."<i class='fa fa-lock'></i> Signup</a></li>";
+              ."<i class='fa fa-lock'></i> Đăng ký</a></li>";
         }
 }
         ?>

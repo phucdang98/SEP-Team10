@@ -45,7 +45,7 @@ if(isset($_POST['accept'])){
         
     }else{
         
-        $error[] = urlencode("An error occurred. By");
+        $error[] = urlencode("Có lỗi");
     }
     
      if(var_set($_POST['why_recommend']) && is_string($_POST['why_recommend'])){

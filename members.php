@@ -14,7 +14,7 @@ $members = array("Phúc Đặng"=>"T160114","Trường Đạo"=>"...",
         <table class="table table-bordered table-responsive-xl">
             <thead class="thead-light">
            
-            <th>Name</th>
+            <th>Tên</th>
             <th>ID</th>
             </thead>
             

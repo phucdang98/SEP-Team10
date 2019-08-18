@@ -10,9 +10,9 @@ if(isset($_SESSION['username'])){
 ?>
 
 <div class="container">
-<h1 class="text-hide">Signup for an account</h1>
+<h1 class="text-hide">Đăng ký</h1>
 
-<h4 class="text-center">Register for an account</h4>
+<h4 class="text-center">Đăng ký</h4>
 
     <div class="row">
 
@@ -48,7 +48,7 @@ if(isset($_SESSION['username'])){
             </div>
             
             <div class="col-md-8 mb-2">
-                <label for="username">Username</label>
+                <label for="username">Tên đăng nhập</label>
                 <input type="text" name="username" id="username">
             </div>
   
@@ -57,22 +57,22 @@ if(isset($_SESSION['username'])){
         <div class="row my-2">
             
             <div class="col-md-6 mb-3">
-                <label for="firstname">Firstname</label>
+                <label for="firstname">Họ</label>
                 <input type="text" name="firstname" id="firstname">
             </div>
                
             <div class="col-md-6 mb-3">
-                <label for="lastname">Lastname</label>
+                <label for="lastname">Tên</label>
                 <input type="text" name="lastname" id="lastname">
             </div>
         </div>
         <div class="container el">
-            <label class="padding-none">Phone Number</label>
+            <label class="padding-none">Số điện thoại</label>
             <hr class="divider">
 
             <div class="row">
                 <div class="col-4 stacked-el">
-                    <label for="code" class="text-sm padding-none">Country code</label><br>
+                    <label for="code" class="text-sm padding-none">Mã vùng</label><br>
                     <select name="country-code" id="code">
                         <?php
 
@@ -83,7 +83,7 @@ if(isset($_SESSION['username'])){
                     </select>
                 </div>
                 <div class="col-8 stacked-el">
-                    <label for="phone" class="text-sm padding-none">Number</label><br>
+                    <label for="phone" class="text-sm padding-none">Số</label><br>
                     <input type="text" name="phone" placeholder="543000391" id="phone">
                 </div>
             </div>
@@ -106,8 +106,8 @@ if(isset($_SESSION['username'])){
             Register
         </button>
         <p class="text-sm">
-            Already registered?
-            <a href="index.php" class="text-sm">Login here</a>
+            Đã có tài khoản
+            <a href="index.php" class="text-sm">Đăng nhập</a>
         </p>
     </form>
     </div>

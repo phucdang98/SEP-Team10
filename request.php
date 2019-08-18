@@ -39,7 +39,7 @@ if(isset($_POST['request'])){
     
     }else{
         
-        $errors[] = urlencode("An error occured. Try again".$db_con->error);
+        $errors[] = urlencode("Có lỗi. Thử lại !".$db_con->error);
     }
     
     $date_requested = date("d-m-Y");
@@ -61,7 +61,7 @@ if(isset($_POST['request'])){
         
     }else{
         
-        $errors[] = urlencode("You must select leave type");
+        $errors[] = urlencode("Phải chọn kiểu nghỉ");
     }
     
     
@@ -71,7 +71,7 @@ if(isset($_POST['request'])){
     
     if($r->num_rows == 1){
         
-        $errors[] = urlencode("You have already applied for this leave");
+        $errors[] = urlencode("Bạn đã gửi đơn xin nghỉ này rồi");
     }
     
     if(!$errors){
@@ -89,7 +89,7 @@ if(isset($_POST['request'])){
         
         if($db_con->affected_rows == 1){
             
-            $msg = urlencode("Leave request successful");
+            $msg = urlencode("Gửi đơn thành công");
             
             redirect_user("dashboard.php?tab=6&msg=$msg");
         }   

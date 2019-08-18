@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 16, 2019 lúc 10:48 AM
--- Phiên bản máy phục vụ: 10.1.32-MariaDB
--- Phiên bản PHP: 7.2.5
+-- Host: localhost:3306
+-- Generation Time: Apr 17, 2018 at 09:33 AM
+-- Server version: 5.7.20
+-- PHP Version: 7.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlynghipheponline`
+-- Database: `leave_manager`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accepted_leaves`
+-- Table structure for table `accepted_leaves`
 --
 
 CREATE TABLE `accepted_leaves` (
@@ -38,26 +38,20 @@ CREATE TABLE `accepted_leaves` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `accepted_leaves`
+-- Dumping data for table `accepted_leaves`
 --
 
 INSERT INTO `accepted_leaves` (`id`, `leave_id`, `staff_id`, `leave_type`, `num_days`, `date_accepted`) VALUES
-(13, 171521752477, 8201914062337, 'annual', 300, '14-08-2019'),
-(14, 201521664164, 8201914062414, 'maternity', 2, '14-08-2019'),
-(15, 191521664208, 8201914062305, 'study', 1, '15-08-2019'),
-(16, 201521664189, 8201914062305, 'paternity', 2, '15-08-2019'),
-(17, 111521664139, 8201914062337, 'sick', 8, '16-08-2019'),
-(18, 201521664164, 8201914062337, 'maternity', 2, '16-08-2019'),
-(19, 191521664227, 8201914062337, 'emergency', 1, '16-08-2019'),
-(20, 191521664208, 8201914062337, 'study', 1, '16-08-2019'),
-(21, 201521664164, 8201914062337, 'maternity', 2, '16-08-2019'),
-(22, 111521664139, 8201914062337, 'sick', 1, '16-08-2019'),
-(23, 111521664139, 8201914062414, 'sick', 1, '16-08-2019');
+(1, 191521664375, 3201821131600, 'annual', 84, '21-03-2018'),
+(2, 191521664375, 3201821131600, 'annual', 8, '21-03-2018'),
+(3, 171521752477, 3201821131600, 'long_embark_disembark', 7, '24-03-2018'),
+(11, 191521664227, 4201804045945, 'emergency', 75, '25-03-2018'),
+(12, 141521664135, 3201821131600, 'annual', 71, '29-03-2018');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -74,16 +68,16 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `admin_id`, `title`, `fname`, `lname`, `username`, `password`, `email`, `phone`, `date_registered`) VALUES
-(1, 152122333134, 'Mr', 'Main', 'Administrator', 'admin', '$2y$10$p3d1dr/FuAkfqQ30EAuqlumWF7c9vy4b0kKkSpx2.janWhzBU5nu6', 'phucdang17798@gmail.com', 500000000, '2019-08-10');
+(1, 152122333134, 'Dr', 'Main', 'Administrator', 'admin', '$2y$10$p3d1dr/FuAkfqQ30EAuqlumWF7c9vy4b0kKkSpx2.janWhzBU5nu6', 'groupone-admin@gmail.com', 500000000, '2018-03-22');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `employee`
+-- Table structure for table `employee`
 --
 
 CREATE TABLE `employee` (
@@ -103,18 +97,18 @@ CREATE TABLE `employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `employee`
+-- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`id`, `staff_id`, `title`, `fname`, `lname`, `username`, `password`, `email`, `country_code`, `phone`, `supervisor`, `staff_level`, `date_registered`) VALUES
-(8, 8201914062305, 'Mr', 'Phúc', 'Đặng', 'phuc98', '$2y$10$1P8kzdgyovmjy7uBFt.RFu2oLlILMJAfJUwPoUXHun1d3JDXeGkFu', 'phuc@gmail.com', '+84', 1234567, 'N/A', 'supervisor', '2019-08-14'),
-(9, 8201914062337, 'Mr', 'Đạo', 'Trường', 'dao98', '$2y$10$uq3X5wvp6vKfZ5XH6xpidOmCscgvuMw8M9FGxcJ3rKFcUPRNx/Hri', 'dao@gmail.com', '+84', 1245678, NULL, 'non-supervisor', '2019-08-14'),
-(10, 8201914062414, 'Mr', 'Tiêu', 'Nghị', 'nghi98', '$2y$10$8CjiY8AHFTkisV6qATu6ZeJ.reOLB.BN3N.bKzItiW6.3FbkM1obK', 'nghi@gmail.com', '+84', 216549, NULL, 'non-supervisor', '2019-08-14');
+(1, 3201821131600, 'Mr', 'Sample', 'Supervisor', 'supervisor', '$2y$10$WlamRug8jhoNKItvm6b7leFwecCAG14KtzwJ47bp7W4ti7JBbm1jy', 'supervisor@yahoo.com', '+233', 543550008, 'N/A', 'supervisor', '2018-03-21'),
+(6, 4201804045945, 'Mrs', 'Alhassan', 'Khadija', 'khadija', '$2y$10$JO4.ykL71kZtIXCNlX0VVuouCJTSN2o46XE4ng8L/fbJcDEEW6q7O', 'khad@gmail.com', '+233', 544344555, 'supervisor', 'non-supervisor', '2018-04-04'),
+(7, 4201817073720, 'Mr', 'Normal', 'Staff', 'staff-one', '$2y$10$7OsZw4oh8gnDg322Dp1efO2XFgZUMDmrvh0CkTA8sRiHtAR0TbDii', 'staff@gmail.com', '+214', 537596761, NULL, NULL, '2018-04-17');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `job_description`
+-- Table structure for table `job_description`
 --
 
 CREATE TABLE `job_description` (
@@ -126,7 +120,7 @@ CREATE TABLE `job_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `job_description`
+-- Dumping data for table `job_description`
 --
 
 INSERT INTO `job_description` (`id`, `staff_id`, `staff_level`, `salary_level`, `date_joined`) VALUES
@@ -136,7 +130,7 @@ INSERT INTO `job_description` (`id`, `staff_id`, `staff_level`, `salary_level`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `leaves`
+-- Table structure for table `leaves`
 --
 
 CREATE TABLE `leaves` (
@@ -151,19 +145,32 @@ CREATE TABLE `leaves` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `leaves`
+-- Dumping data for table `leaves`
 --
 
 INSERT INTO `leaves` (`id`, `leave_id`, `leave_type`, `allowed_days`, `current_days`, `allowed_monthly_days`, `for_staff_level`, `auto_update`) VALUES
-(2, 111521664139, 'sick', 0, 0, 15, 'non-supervisor', 1524255729),
+(1, 141521664135, 'annual', 30, 30, 15, 'non-supervisor', 1524255725),
+(2, 111521664139, 'sick', 0, 0, 30, 'non-supervisor', 1524255729),
 (3, 201521664164, 'maternity', 90, 90, 30, 'non-supervisor', 1524255754),
-(5, 191521664208, 'study', 14, 14, 14, 'non-supervisor', 1524255798),
-(6, 191521664227, 'emergency', 30, 30, 7, 'non-supervisor', 1524255817);
+(4, 201521664189, 'paternity', 30, 30, 15, 'non-supervisor', 1524255779),
+(5, 191521664208, 'study', 300, 300, 30, 'non-supervisor', 1524255798),
+(6, 191521664227, 'emergency', 30, 30, 7, 'non-supervisor', 1524255817),
+(7, 131521664254, 'casual', 25, 25, 2, 'non-supervisor', 1524255844),
+(8, 161521664278, 'special', 15, 15, 5, 'non-supervisor', 1524255868),
+(9, 141521664294, 'examinations', 63, 63, 21, 'non-supervisor', 1524255884),
+(10, 191521664322, 'sports', 21, 21, 5, 'non-supervisor', 1524255912),
+(11, 131521664341, 'absense', 15, 15, 2, 'non-supervisor', 1524255931),
+(12, 191521664359, 'short_embark_disembark', 15, 15, 3, 'non-supervisor', 1524255949),
+(13, 191521664375, 'long_embark_disembark', 30, 30, 5, 'non-supervisor', 1524255965),
+(14, 171521752477, 'annual', 300, 300, 20, 'supervisor', 1524344067),
+(15, 111521833755, 'sick', 0, 0, 30, 'supervisor', 1524425345),
+(16, 191521833769, 'maternity', 23, 23, 4, 'supervisor', 1524425359),
+(17, 141521833782, 'paternity', 45, 45, 2, 'supervisor', 1524425372);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `leave_applications`
+-- Table structure for table `leave_applications`
 --
 
 CREATE TABLE `leave_applications` (
@@ -178,19 +185,26 @@ CREATE TABLE `leave_applications` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `leave_applications`
+-- Dumping data for table `leave_applications`
 --
 
 INSERT INTO `leave_applications` (`id`, `leave_id`, `staff_id`, `leave_type`, `leave_start_date`, `leave_end_date`, `action`, `date_requested`) VALUES
-(35, 111521664139, 8201914062337, 'sick', '2019-08-16', '2019-08-17', 'accept', '16-08-2019'),
-(36, 201521664164, 8201914062337, 'maternity', '2019-08-16', '2019-08-17', 'accept', '16-08-2019'),
-(37, 191521664208, 8201914062337, 'study', '2019-08-16', '2019-08-17', 'accept', '16-08-2019'),
-(38, 191521664227, 8201914062337, 'emergency', '2019-08-16', '2019-08-17', NULL, '16-08-2019');
+(1, 191521664375, 3201821131600, 'annual', '2018-03-22', '2018-03-30', 'accept', '21-03-2018'),
+(4, 201521664189, 3201821131600, 'annual', '2018-03-31', '2018-04-03', 'accept', '24-03-2018'),
+(6, 171521752477, 3201821131600, 'long_embark_disembark', '2018-03-24', '2018-03-31', 'accept', '24-03-2018'),
+(7, 0, 3201821131600, 'study', '2018-03-26', '2018-03-31', 'reject', '24-03-2018'),
+(8, 141521664294, 3201821131600, 'examinations', '2018-03-29', '2018-03-30', 'accept', '22-03-2018'),
+(9, 191521664322, 3201821131600, 'sports', '2018-03-29', '2018-04-07', 'accept', '22-03-2018'),
+(10, 201521664164, 3201821131600, 'maternity', '2018-03-28', '2018-04-04', 'accept', '22-03-2018'),
+(11, 161521664278, 4201804045945, 'special', '2018-03-23', '2018-03-30', 'accept', '22-03-2018'),
+(12, 191521664227, 4201804045945, 'emergency', '2018-03-31', '2018-04-06', 'accept', '25-03-2018'),
+(13, 111521833755, 3201821131600, 'sick', '2018-04-07', '2018-04-13', 'accept', '29-03-2018'),
+(14, 141521664135, 3201821131600, 'annual', '2018-03-30', '2018-04-01', 'accept', '29-03-2018');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_recovery_meta`
+-- Table structure for table `password_recovery_meta`
 --
 
 CREATE TABLE `password_recovery_meta` (
@@ -203,7 +217,7 @@ CREATE TABLE `password_recovery_meta` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `recommended_leaves`
+-- Table structure for table `recommended_leaves`
 --
 
 CREATE TABLE `recommended_leaves` (
@@ -219,38 +233,23 @@ CREATE TABLE `recommended_leaves` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `recommended_leaves`
+-- Dumping data for table `recommended_leaves`
 --
 
 INSERT INTO `recommended_leaves` (`id`, `leave_id`, `leave_type`, `staff_id`, `recommended_by`, `num_days`, `why_recommend`, `date_recommended`, `status`) VALUES
-(13, 171521752477, 'annual', 8201914062337, 'supervisor', 300, '', '14-08-2019', 'accepted'),
-(14, 201521664164, 'maternity', 8201914062414, 'supervisor', 2, 'Duyệt', '14-08-2019', 'accepted'),
-(15, 191521664208, 'study', 8201914062305, 'supervisor', 1, '', '15-08-2019', 'accepted'),
-(16, 201521664189, 'paternity', 8201914062305, 'supervisor', 2, '', '15-08-2019', 'accepted'),
-(17, 201521664164, 'maternity', 8201914062337, 'phuc98', 2, 'abc', '16-08-2019', 'accepted'),
-(18, 111521664139, 'sick', 8201914062337, 'phuc98', 8, 'sad', '16-08-2019', 'accepted'),
-(19, 191521664227, 'emergency', 8201914062337, 'phuc98', 1, 'asd', '16-08-2019', 'accepted'),
-(20, 191521664208, 'study', 8201914062337, 'phuc98', 1, '', '16-08-2019', 'accepted'),
-(21, 111521664139, 'sick', 8201914062414, 'phuc98', 1, '', '16-08-2019', 'accepted'),
-(22, 111521664139, 'sick', 8201914062337, 'phuc98', 1, '', '16-08-2019', 'accepted'),
-(23, 201521664164, 'maternity', 8201914062337, 'phuc98', 2, '', '16-08-2019', 'accepted'),
-(24, 191521664227, 'emergency', 8201914062337, 'phuc98', 2, '', '16-08-2019', NULL),
-(25, 111521664139, 'sick', 8201914062337, 'phuc98', 1, '', '16-08-2019', NULL),
-(26, 201521664164, 'maternity', 8201914062337, 'phuc98', 1, '', '16-08-2019', NULL),
-(27, 191521664208, 'study', 8201914062337, 'phuc98', 1, '', '16-08-2019', NULL),
-(28, 191521664227, 'emergency', 8201914062337, 'phuc98', 1, '', '16-08-2019', NULL),
-(29, 111521664139, 'sick', 8201914062414, 'phuc98', 1, '', '16-08-2019', NULL),
-(30, 201521664164, 'maternity', 8201914062414, 'phuc98', 1, '', '16-08-2019', NULL),
-(31, 191521664208, 'study', 8201914062414, 'phuc98', 1, '', '16-08-2019', NULL),
-(32, 191521664227, 'emergency', 8201914062414, 'phuc98', 2, '', '16-08-2019', NULL),
-(33, 111521664139, 'sick', 8201914062337, 'phuc98', 1, '', '16-08-2019', NULL),
-(34, 201521664164, 'maternity', 8201914062337, 'phuc98', 1, '', '16-08-2019', NULL),
-(35, 191521664208, 'study', 8201914062337, 'phuc98', 1, '', '16-08-2019', NULL);
+(1, 201521664189, 'annual', 3201821131600, 'supervisor', 72, 'No reason', '24-03-2018', 'rejected'),
+(2, 141521664294, 'examinations', 3201821131600, 'supervisor', 1, 'There is no reason to reject this leave as I\'ve not seen anything wrong with it anywhere.\r\n\r\nHowever, the admin may find reasons that will be enough to reject the leave if he so sees them. But to me, I can\'t see anything wrong with the leave.', '22-03-2018', 'accepted'),
+(3, 191521664322, 'sports', 3201821131600, 'supervisor', 78, '', '22-03-2018', 'accepted'),
+(8, 191521664227, 'emergency', 4201804045945, 'supervisor', 75, '', '25-03-2018', 'accepted'),
+(9, 201521664164, 'maternity', 3201821131600, 'supervisor', 76, '', '25-03-2018', NULL),
+(10, 161521664278, 'special', 4201804045945, 'supervisor', 7, '', '25-03-2018', NULL),
+(11, 111521833755, 'sick', 3201821131600, 'supervisor', 6, 'For example, on Ubuntu, \'pip\' for one would no longer run correctly unless you directly edited the file and changed the shebang to reference \'#!/usr/bin/env python2.7\'. On RHEL (Red Hat Enterprise Linux) flavors such as Red Hat, Fedora and CentOS, the \'Yum\' command is also dependent on Python 2.7.\r\n\r\nMy point here is that you would cause a significant amount of code to start throwing assertion errors just so you could type \'python\' in the terminal to reference Python 3.x.', '29-03-2018', NULL),
+(12, 141521664135, 'annual', 3201821131600, 'supervisor', 71, '', '29-03-2018', 'accepted');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `rejected_leaves`
+-- Table structure for table `rejected_leaves`
 --
 
 CREATE TABLE `rejected_leaves` (
@@ -263,18 +262,17 @@ CREATE TABLE `rejected_leaves` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `rejected_leaves`
+-- Dumping data for table `rejected_leaves`
 --
 
 INSERT INTO `rejected_leaves` (`id`, `leave_id`, `staff_id`, `leave_type`, `reason_reject`, `date_rejected`) VALUES
-(6, 201521664164, 3201821131600, 'maternity', NULL, '14-08-2019'),
-(7, 161521664278, 4201804045945, 'special', NULL, '14-08-2019'),
-(8, 111521833755, 3201821131600, 'sick', NULL, '14-08-2019');
+(1, 201521664189, 3201821143322, 'annual', 'The end of the working period is almost over. Granting this leave request means that the worker will not be available when the company is going on work vacations.\r\nThis is highly not recommended since the employee may be dismiss as a result of missing vacation day activities.', '24-03-2018'),
+(5, 0, 3201821143322, 'study', ' This leave has no ID and so recommending it will be nonsense. If you want your leave to be recommended, try following the right procedure in requesting a leave.\r\n\r\nYou can\'t just request anything and expect me to recommend it. If there is any problem, how do you expect me to reference the leave? How can I justify you followed the right precedure?', '24-03-2018');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user_leave_metadata`
+-- Table structure for table `user_leave_metadata`
 --
 
 CREATE TABLE `user_leave_metadata` (
@@ -286,7 +284,7 @@ CREATE TABLE `user_leave_metadata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `user_leave_metadata`
+-- Dumping data for table `user_leave_metadata`
 --
 
 INSERT INTO `user_leave_metadata` (`id`, `staff_level`, `total_yr_leave_count`, `total_month_leave_count`, `current_days`) VALUES
@@ -294,17 +292,17 @@ INSERT INTO `user_leave_metadata` (`id`, `staff_level`, `total_yr_leave_count`, 
 (2, 'supervisor', 320, 30, 320);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `accepted_leaves`
+-- Indexes for table `accepted_leaves`
 --
 ALTER TABLE `accepted_leaves`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
@@ -314,7 +312,7 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `phone` (`phone`);
 
 --
--- Chỉ mục cho bảng `employee`
+-- Indexes for table `employee`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`),
@@ -324,108 +322,108 @@ ALTER TABLE `employee`
   ADD UNIQUE KEY `phone` (`phone`);
 
 --
--- Chỉ mục cho bảng `job_description`
+-- Indexes for table `job_description`
 --
 ALTER TABLE `job_description`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `leaves`
+-- Indexes for table `leaves`
 --
 ALTER TABLE `leaves`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `leave_id` (`leave_id`);
 
 --
--- Chỉ mục cho bảng `leave_applications`
+-- Indexes for table `leave_applications`
 --
 ALTER TABLE `leave_applications`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `password_recovery_meta`
+-- Indexes for table `password_recovery_meta`
 --
 ALTER TABLE `password_recovery_meta`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `recommended_leaves`
+-- Indexes for table `recommended_leaves`
 --
 ALTER TABLE `recommended_leaves`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `rejected_leaves`
+-- Indexes for table `rejected_leaves`
 --
 ALTER TABLE `rejected_leaves`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `user_leave_metadata`
+-- Indexes for table `user_leave_metadata`
 --
 ALTER TABLE `user_leave_metadata`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `accepted_leaves`
+-- AUTO_INCREMENT for table `accepted_leaves`
 --
 ALTER TABLE `accepted_leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT cho bảng `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `employee`
+-- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `job_description`
+-- AUTO_INCREMENT for table `job_description`
 --
 ALTER TABLE `job_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `leaves`
+-- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT cho bảng `leave_applications`
+-- AUTO_INCREMENT for table `leave_applications`
 --
 ALTER TABLE `leave_applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT cho bảng `password_recovery_meta`
+-- AUTO_INCREMENT for table `password_recovery_meta`
 --
 ALTER TABLE `password_recovery_meta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `recommended_leaves`
+-- AUTO_INCREMENT for table `recommended_leaves`
 --
 ALTER TABLE `recommended_leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT cho bảng `rejected_leaves`
+-- AUTO_INCREMENT for table `rejected_leaves`
 --
 ALTER TABLE `rejected_leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `user_leave_metadata`
+-- AUTO_INCREMENT for table `user_leave_metadata`
 --
 ALTER TABLE `user_leave_metadata`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

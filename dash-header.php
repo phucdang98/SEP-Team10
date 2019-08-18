@@ -29,16 +29,10 @@ if(isset($_SESSION['staff-user']) && $_SESSION['staff-user'] !== ""){
 ?>      <li class="list-main">
                 <a href="dashboard.php?tab=1">
                 <i class="fa fa-bell icon"></i>
-                <span class="extra-sm">Thông báo nghỉ phép</span>
+                <span class="extra-sm">Lịch sử nghỉ phép</span>
                 </a>
             </li>
 
-            <li class="list-main">
-                <a href="dashboard.php?tab=2">
-                <i class="fa fa-edit icon"></i>
-                <span class="extra-sm">Mô tả bản thân</span>
-                </a>
-            </li>
 
             <li class="list-main">
                 <a data-toggle="collapse" href="#more" role="button"
@@ -58,7 +52,7 @@ if(isset($_SESSION['staff-user']) && $_SESSION['staff-user'] !== ""){
                     <li>
                         <a href="dashboard.php?tab=3">
                             <i class="fa fa-archive icon"></i>
-                            <span class="extra-sm break">Đơn đã xin</span>
+                            <span class="extra-sm break">Thông tin</span>
                         </a>
                     </li>
                     <li>
@@ -74,7 +68,7 @@ if(isset($_SESSION['staff-user']) && $_SESSION['staff-user'] !== ""){
             echo '<li style="list-style:none;">
                     <a href="dashboard.php?tab=7">
                         <i class="fa fa-recycle icon"></i>
-                        <span class="extra-sm break">Recommend Leave</span>
+                        <span class="extra-sm break">Duyệt đơn</span>
                     </a>
                 </li>';
             }
@@ -98,35 +92,11 @@ if(isset($_SESSION['staff-user']) && $_SESSION['staff-user'] !== ""){
                 </span>
                 </a>
             </li>
-
-            <li class="list-main">
-                <a href="admin.php?tab=5">
-                <i class="fa fa-check icon"></i>
-                <span class="extra-sm break">
-                    Người giám sát mới
-                </span>
-                </a>
-
-            </li>
-
             <li class="list-main">
                 <a href="admin.php?tab=2">
-                <i class="fa fa-tasks icon"></i>
-                <span class="extra-sm break">
-                    Xác nhận nhân viên mới
-                </span>
+                <i class="fa fa-bell icon"></i>
+                <span class="extra-sm">Thống kê nghỉ phép</span>
                 </a>
-
-            </li>
-
-            <li class="list-main">
-                <a href="admin.php?tab=6">
-                <i class="fa fa-briefcase icon"></i>
-                <span class="extra-sm break">
-                    Mô tả công việc mới
-                </span>
-                </a>
-
             </li>
 
             <li class="list-main">
@@ -139,14 +109,14 @@ if(isset($_SESSION['staff-user']) && $_SESSION['staff-user'] !== ""){
             </li>
 
 
-            <li class="list-main">
-                <a href="admin.php?tab=8">
-                <i class="fa fa-adjust icon"></i>
-                <span class="extra-sm break">
-                    Dữ liệu xin nghỉ
-                </span>
-                </a>
-            </li>
+            
+           
+
+           
+
+           
+
+           
     <?php } ?>
         </ul>
     </div>

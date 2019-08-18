@@ -17,7 +17,7 @@ if(isset($_GET['action']) && $_GET['action'] == "login"){
 
         $id = "admin-login";
 
-        $field = "Admin Username";
+        $field = "Tên đăng nhập admin";
 
         $prop = 'text';
 
@@ -51,14 +51,14 @@ if(isset($_GET['action']) && $_GET['action'] == "login"){
 
         $prop = 'text';
 
-        $title = "Staff Login";
+        $title = "Đăng nhập nhân viên";
 
         $page = 'dashboard.php';
 
         $tbl = "employee";
         
-        $account_trigger = "No account? <a href='register.php' class='text-sm'>"
-                . "Register now</a>";
+        $account_trigger = "Chưa có tài khoản? <a href='register.php' class='text-sm'>"
+                . "Đăng ký ngay</a>";
 
     }    
     
@@ -72,7 +72,7 @@ if(isset($_GET['action']) && $_GET['action'] == "login"){
 
     $username = "username";
     
-    $field = "Username";
+    $field = "Tên đăng nhập";
 
     $action = "user.php";
 
@@ -88,8 +88,8 @@ if(isset($_GET['action']) && $_GET['action'] == "login"){
     
     $tbl = "employee";
     
-    $account_trigger = "No account? <a href='register.php' class='text-sm'>"
-            . "Register</a>";
+    $account_trigger = "Chưa có tài khoản? <a href='register.php' class='text-sm'>"
+            . "Đăng ký</a>";
 
 }    
 
@@ -132,15 +132,13 @@ echo $part;
                 <label class="text-black" for="staff_user">$field</label class="text-black"><br>
                 <input type="$prop" name="$username" maxlength="50" class="input-text" id="username"><br>
                        
-                <label class="text-black" for="password">Password</label class="text-black"><br>
+                <label class="text-black" for="password">Mật khẩu</label class="text-black"><br>
                 <input type="password" name="password" maxlength="50" class="input-text" id="password">
  
-                <button name="login" class="btn btn-yellow" type="submit">Login</button>
+                <button name="login" class="btn btn-yellow" type="submit">Đăng nhập</button>
                 <br>
                 <small class='mr-2'>$ac</small>
-                <small class='ml-2'>
-                    <a href="recover.php" class='text-sm'>Forgot Password?</a>
-                </small>
+                
             </form>
             
         </div>

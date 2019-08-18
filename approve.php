@@ -1,52 +1,91 @@
 <?php
 
-$res = $db_con->query("SELECT * FROM employee WHERE staff_level IS NULL OR staff_level = ''");
+/**
+ * This file contains all leave activities by staff - accepted leaves, rejected 
+ * leaves and pending leaves
+ */
 
-if($res->num_rows > 0){
+$result = $db_con->query("SELECT * FROM leave_applications");
 
-    echo '<div class="card mb-md-5">
-    <h1 class="text-md text-center">Pending Leaves</h1>
+echo '<div class="card mb-md-5">
+        <h1 class="text-center mb-4 text-md">Thống kê nghỉ phép nhân viên</h1>
         <table class="table table-bordered table-responsive-sm w-100">
 
             <thead class="thead-dark">
-                <th>Staff ID</th>
-                <th>Username</th>
-                <th>Full Name</th>
-                <th>Date Registered</th>
-                <th>Action</th>
+                <th>Mã đơn nghỉ</th>
+                <th>Mã nhân viên</th>
+                <th>Hình thức nghỉ</th>
+                
+                <th>Bắt đầu nghỉ</th>
+                <th>Hạn nghỉ</th>
+                <th>Gửi đơn ngày</th>
+                <th>Trạng thái</th>
             </thead>';
 
-    while ($row = $res->fetch_object()){
+if($result->num_rows > 0){
+
+    while ($row = $result->fetch_object()){
     
-        
+        if($row->action == 'accept'){
+
+        $status = "<button class='btn success-btn'>"
+                . "<i class='fa fa-check pr-2'></i> Accepted</button>";
+        }elseif($row->action == "reject"){
+
+            $status = "<button class='btn danger-btn'>"
+                    . "<i class='fa fa-remove pr-2'></i> Rejected</button>";
+        }else{
+            $status = "<button class='btn pending-btn'>"
+                    . "<i class='fa fa-refresh pr-2'></i> Pending</button>";
+        }
+
+        if($row->leave_type == "short_embark_disembark"){
+
+            $type = "Short Embarkation/Disembarkation Leave";
+
+        }elseif ($row->leave_type == "long_embark_disembark") {
+
+            $type = "Long Embarkation/Disembarkation Leave";
+
+        }  else {
+
+            $type = ucfirst($row->leave_type)." Leave";
+
+        }
+
         $student = <<<STAFF
                 <tr>
 
+                    <td>$row->leave_id</td>
                     <td>$row->staff_id</td>
-                    <td>$row->username</td>
-                    <td>
-                        $row->fname $row->lname
-                    </td>
-                
-                     <td>$row->date_registered</td>
+
+                    <td>$type</td>
                    
+
                     
-                    <td><form action="process.php" method="post">
-                        <input name="staff_id" value="$row->staff_id" type="hidden">
-                        <input type="hidden" name="id" value="$row->id">
-                        <button class="btn success-btn" name='approve'>Approve</button>
-                        </form>
-                    </td>
+                      <td>$row->leave_start_date</td>
                    
+                    <td>
+                        $row->leave_end_date
+                    </td>
+                    
+                    
+                    <td>
+                        $row->date_requested
+                    </td>
+                     <td>
+                        $status
+                     </td>
                 </tr>
 STAFF;
 
     echo $student; 
     }
-    
-    echo '</table></div>';
-}else{
-    echo '<div class="mt-4">
-        <h1 class="text-md text-center">Nothing available</h1></div>';
-}
-    
+     
+  
+ }else {
+        echo '<tr><td class="text-center mb-m-2">No leave data available</td></tr>';
+    }
+
+echo '</table></div>';
+

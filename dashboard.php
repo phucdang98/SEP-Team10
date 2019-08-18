@@ -40,7 +40,7 @@ if(!isset($_SESSION['staff-user']) && $_SESSION['staff-user'] == ""){
                     <a class="nav-link active" id="rejected-tab" data-toggle="tab"
                         href="#rejected" role="tab" aria-controls="rejected" aria-selected="true">
                     <i class="fa fa-close"></i>
-                    <span class="extra-sm break">Rejected</span>
+                    <span class="extra-sm break">Đã từ chối</span>
                     </a>
                 </li>
 
@@ -49,18 +49,11 @@ if(!isset($_SESSION['staff-user']) && $_SESSION['staff-user'] == ""){
                         href="#accepted" role="tab" aria-controls="accepted"
                             aria-selected="false">
                         <i class="fa fa-handshake-o"></i>
-                        <span class="extra-sm break">Accepted</span>
+                        <span class="extra-sm break">Đã chấp thuận</span>
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" id="no-action-tab" data-toggle="tab"
-                        href="#no-action" role="tab" aria-controls="no-action"
-                            aria-selected="false">
-                        <i class="fa fa-refresh"></i>
-                        <span class="extra-sm break">Pending</span>
-                    </a>
-                </li>
+                
             </ul>
 PHP;
         echo $tabs.'<div class="tab-content" id="tab">';
@@ -73,15 +66,15 @@ PHP;
         if($result->num_rows > 0){
 
            echo '<div class="card mb-md-5">
-                <h1 class="text-md text-center">Pending Leaves</h1>
+                <h1 class="text-md text-center">Đơn chờ duyệt</h1>
                     <table class="table table-bordered table-responsive-sm w-100">
 
                         <thead class="thead-dark toggle-leave">
-                            <th>Leave ID</th>
-                            <th>Leave Type</th>
-                            <th>Reason</th>
-                            <th>Date Rejected</th>
-                            <th>Action</th>
+                            <th>Mã đơn nghỉ</th>
+                            <th>Kiểu nghỉ</th>
+                            <th>Lý do</th>
+                            <th>Ngày từ chối</th>
+                            <th>Hoạt động</th>
                         </thead>';
 
                     while($row = $result->fetch_object()){
@@ -124,7 +117,7 @@ PP;
              </div>";
 
         }else {
-            echo '<h2 class="text-center mb-5">No data available</h2>';
+            echo '<h2 class="text-center mb-5">Không có dữ liệu</h2>';
         }
 
         echo '</div>';
@@ -139,10 +132,10 @@ PP;
                     <table class="table table-bordered table-responsive-sm w-100">
 
                         <thead class="thead-dark">
-                            <th>Leave ID</th>
-                            <th>Leave Type</th>
-                            <th>Number of Days</th>
-                            <th>Date Accepted</th>
+                            <th>Mã đơn nghỉ</th>
+                            <th>Kiểu đơn nghỉ</th>
+                            <th>Số ngày</th>
+                            <th>Ngày xét duyệt</th>
                         </thead>';
 
             while($row = $result->fetch_object()){
@@ -166,7 +159,7 @@ PP;
            </div>";
 
         }else {
-            echo '<h2 class="text-center mb-5">No data available</h2>';
+            echo '<h2 class="text-center mb-5">Không có dữ liệu</h2>';
         }
 
         echo ' </div>';
@@ -185,9 +178,9 @@ PP;
                 <div class="card">
                     <table class="table table-bordered table-responsive-sm w-100">
                         <thead class="thead-dark">
-                            <th>Leave ID</th>
-                            <th>Date Requested</th>
-                            <th>Leave Type</th>
+                            <th>Mã đơn nghỉ</th>
+                            <th>Ngày gửi đơn</th>
+                            <th>Kiểu nghỉ</th>
                         </thead>
 
                         <tr>
@@ -206,7 +199,7 @@ PP;
 GROUP_ONE;
             echo $more;
         }else {
-            echo '<h2 class="text-center mb-5">No data available</h2>';
+            echo '<h2 class="text-center mb-5">Không có dữ liệu</h2>';
         }
 
         echo '</div></div></div>';
@@ -262,7 +255,7 @@ GROUP_ONE;
             echo "</table>
                 </div>";
 
-            $res = $db_con->query("SELECT * FROM leaves WHERE leaves.for_staff_level = '$level'");
+            $res = $db_con->query("SELECT * FROM leaves WHERE for_staff_level = '$level'");
 
             $rows = $res->num_rows;
 
@@ -275,14 +268,14 @@ GROUP_ONE;
                 $r = $st->fetch_object();
 
                 echo '<div class="card mb-md-5 mt-5">
-                    <h1 class="text-center text-md">More Leave Statistics</h1>
+                    <h1 class="text-center text-md">Thống kê</h1>
                     <table class="table table-bordered table-responsive-sm w-100">
                     <thead class="thead-light">
-                        <th>Leave ID</th>
-                        <th>Leave Type</th>
-                        <th>Allowed Annual Days</th>
-                        <th>Allowed Monthly Days</th>
-                        <th>No. Days Left</th>
+                        <th>Mã đơn nghỉ</th>
+                        <th>Kiểu nghỉ</th>
+                        <th>Số ngày được phép</th>
+                        <th>Số ngày được phép nghỉ trong tháng</th>
+                        
                     </thead>';
 
                 while($row = $res->fetch_object()){
@@ -309,13 +302,7 @@ GROUP_ONE;
                         $allowed = $row->allowed_days;
                     }
 
-                    if($row->leave_type == "long_embark_disembark"){
-                        $type = "Long Embarkation/Disembarkation";
-                    }elseif($row->leave_type == "short_embark_disembark"){
-                        $type = "Short Embarkation/Disembarkation";
-                    }else{
-                        $type = $row->leave_type;
-                    }
+                    
 
                     $days = $days > 0 ? $days : "Indefinite";
                     echo "<tr><td>$row->leave_id</td>
@@ -331,6 +318,7 @@ GROUP_ONE;
 
                 echo '</table></div>';
             }
+
         }else{
             echo "<h1 class='text-center text-md mb-lg'>Nothing to show</h1>";
         }
@@ -352,12 +340,12 @@ echo '<div class="card mb-md-5">
         <table class="table table-bordered table-responsive-sm w-100">
 
             <thead class="thead-dark">
-                <th>Leave ID</th>
-                <th>Leave Type</th>
-                <th>Date Start</th>
-                <th>Date End</th>
-                <th>Status</th>
-                <th>Date Requested</th>
+                <th>Mã đơn nghỉ</th>
+                <th>Kiểu nghỉ</th>
+                <th>Ngày bắt đầu nghỉ</th>
+                <th>Ngày đi làm lại</th>
+                <th>Trạng thái</th>
+                <th>Ngày nộp đơn</th>
             </thead>';
 
 if($result->num_rows > 0){
@@ -367,14 +355,14 @@ if($result->num_rows > 0){
         if($row->action == 'accept'){
 
         $status = "<button class='btn success-btn'>"
-                . "<i class='fa fa-check pr-2'></i> Accepted</button>";
+                . "<i class='fa fa-check pr-2'></i> Đồng ý</button>";
         }elseif($row->action == "reject"){
 
             $status = "<button class='btn danger-btn'>"
-                    . "<i class='fa fa-remove pr-2'></i> Rejected</button>";
+                    . "<i class='fa fa-remove pr-2'></i> Từ chối</button>";
         }else{
             $status = "<button class='btn pending-btn'>"
-                    . "<i class='fa fa-refresh pr-2'></i> Pending</button>";
+                    . "<i class='fa fa-refresh pr-2'></i> Chờ</button>";
         }
 
         if($row->leave_type == "short_embark_disembark"){
@@ -413,7 +401,7 @@ STAFF;
 
 
  }else {
-        echo '<tr><td class="text-center mb-m-2">No leave data available</td></tr>';
+        echo '<tr><td class="text-center mb-m-2">Không có dữ liệu</td></tr>';
     }
 
 echo '</table></div>';

@@ -5,7 +5,7 @@ if($level == "non-supervisor"){
     
 }else{
         
-    $result = $db_con->query("SELECT * FROM leaves WHERE for_staff_level = 'supervisor'");
+    $result = $db_con->query("SELECT * FROM leaves WHERE for_staff_level = 'non-supervisor'");
 
 }
 
@@ -13,7 +13,7 @@ if($result->num_rows > 0){
     
     include("leave-types.php");
 
-    echo "<h1 class='text-center hide'>New Leave Request</h1>
+    echo "<h1 class='text-center hide'>Đơn nghỉ mới</h1>
 
         <form action='request.php' method='post' class='mb-5' id='request-form'>
             <input type='hidden' name='staff_id' value='$id'>

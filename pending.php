@@ -4,17 +4,17 @@ $result = $db_con->query("SELECT * FROM leave_applications WHERE
         action IS NULL");
 
 echo '<div class="card mb-md-5">
-    <h1 class="text-md text-center">Pending Leaves</h1>
+    <h1 class="text-md text-center">Duyệt đơn</h1>
         <table class="table table-bordered table-responsive-sm w-100">
 
             <thead class="thead-dark">
                 <th>ID</th>
-                <th>Type</th>
-                <th>Staff ID</th>
-                <th>Starts</th>
-                <th>Ends</th>
-                <th>Requested on</th>
-                <th colspan="3">Action</th>
+                <th>Kiểu</th>
+                <th>Mã nhân viên</th>
+                <th>Bắt đầu</th>
+                <th>Kết thúc</th>
+                <th>Gửi đơn ngày</th>
+                <th colspan="3">Hành động</th>
             </thead>';
 
 if($result->num_rows > 0){
@@ -50,7 +50,7 @@ if($result->num_rows > 0){
         
         $num_days = intval($end) - intval($start);
         
-        $rows = query_db("SELECT fname,email FROM employee WHERE 
+        $rows = query_db("SELECT * FROM employee WHERE 
             staff_id = $row->staff_id");
         
         $student = <<<STAFF
@@ -72,13 +72,13 @@ if($result->num_rows > 0){
                     </td>
                     <td>
                     <button type="button" class="btn success-btn" data-toggle="modal" data-target="#rec-$row->leave_id">
-                        Recommend
+                        Chấp thuận
                     </button>
                     <div class="modal" id="rec-$row->leave_id" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title">Any reason for recommending leave?</h5>
+                              <h5 class="modal-title">Lý do để đồng ý</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -93,10 +93,10 @@ if($result->num_rows > 0){
                                     <input type="hidden" name="email" value="$rows->email">
                                     <input type="hidden" name="firstname" value="$rows->fname">
                                     <input type="hidden" name="num_days" value="$num_days">
-                                    <label>Provide reason here</label><br>
+                                    <label>Điền lý do</label><br>
                                     <textarea name="why_recommend" class="form-control"></textarea><hr>
                                     <button class="btn btn-success" name='accept'>
-                                        Continue
+                                        Gửi lên trưởng khoa
                                     </button>
                                 </form>
                             </div>
@@ -104,43 +104,7 @@ if($result->num_rows > 0){
                           </div>
                          </div>
                     </td>
-                    <td><button type="button" class="btn danger-btn" data-toggle="modal" data-target="#reject-$row->leave_id">
-                        Reject
-                        </button>
-                        
-                        <div class="modal" id="reject-$row->leave_id" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title">Reason</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action='recommend.php' method='post'>
-                                    <label for='notif'>Reason for rejection</label>
-                                    <hr class='divider'>
-                                    <small>Is there any reason for rejecting this leave? Enter it
-                                    here</small>
-                                    <input type="hidden" name="email" value="$rows->email">
-                                    <input type="hidden" name="firstname" value="$rows->fname">
-                                    <input name="leave_id" value="$row->leave_id" type="hidden">
-                                    <input type="hidden" name="staff_id" value="$row->staff_id">
-                                    <input name="leave_type" value="$row->leave_type" type="hidden">
-                                    <textarea name='reason' class='form-control' id='notif'></textarea><br>
-
-                                    <button name='reject' class='btn btn-danger btn-sm'>
-                                    Reject Leave</button>
-                                </form>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                        </div>
-                    </td>
+                   
                 </tr>
 STAFF;
 
@@ -152,7 +116,7 @@ STAFF;
     echo "";
   
  }else {
-        echo '<tr><td class="text-center mb-m-2">No leave data available</td></tr>'
+        echo '<tr><td class="text-center mb-m-2">Không có đơn nghỉ phép</td></tr>'
      . '</table></div>';
     }
 

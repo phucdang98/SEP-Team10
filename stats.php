@@ -5,17 +5,20 @@
  * leaves and pending leaves
  */
 
-$result = $db_con->query("SELECT * FROM leave_applications WHERE staff_id = $id");
+$result = $db_con->query("SELECT * FROM leave_applications WHERE staff_id = $id and action IS NULL");
 
 echo '<div class="card mb-md-5">
-        <h1 class="text-center mb-4 text-md">Requested Leaves</h1>
+        <h1 class="text-center mb-4 text-md">Đơn đang chờ</h1>
         <table class="table table-bordered table-responsive-sm w-100">
 
             <thead class="thead-dark">
-                <th>Leave ID</th>
-                <th>Leave Type</th>
-                <th>Status</th>
-                <th>Date Requested</th>
+                <th>Mã đơn nghỉ</th>
+                <th>Hình thức nghỉ</th>
+                
+                <th>Bắt đầu nghỉ</th>
+                <th>Hạn nghỉ</th>
+                <th>Gửi đơn ngày</th>
+                <th>Trạng thái</th>
             </thead>';
 
 if($result->num_rows > 0){
@@ -55,13 +58,22 @@ if($result->num_rows > 0){
                     <td>$row->leave_id</td>
 
                     <td>$type</td>
+                   
 
+                    
+                      <td>$row->leave_start_date</td>
+                   
                     <td>
-                        $status
-                     </td>
+                        $row->leave_end_date
+                    </td>
+                    
+                    
                     <td>
                         $row->date_requested
                     </td>
+                     <td>
+                        $status
+                     </td>
                 </tr>
 STAFF;
 
@@ -70,7 +82,7 @@ STAFF;
      
   
  }else {
-        echo '<tr><td class="text-center mb-m-2">No leave data available</td></tr>';
+        echo '<tr><td class="text-center mb-m-2">Không có đơn nghỉ phép</td></tr>';
     }
 
 echo '</table></div>';
@@ -89,14 +101,14 @@ if($rows > 0){
     $r = $st->fetch_object();
 
     echo '<div class="card mb-md-5 mt-5">
-        <h1 class="text-center text-md">Leave Statistics</h1>
+        <h1 class="text-center text-md">Mô tả hình thức nghỉ</h1>
         <table class="table table-bordered table-responsive-sm w-100">
         <thead class="thead-dark">
-            <th>Leave ID</th>
-            <th>Leave Type - '.$staff_id.'</th>
-            <th>Allowed Annual Days</th>
-            <th>Allowed Monthly Days</th>
-            <th>No. Days Left</th>
+            <th>Mã đơn nghỉ</th>
+            <th>Hình thức nghỉ - '.$staff_id.'</th>
+            <th>Ngày được phép nghỉ thường niên</th>
+            <th>Ngày được phép nghỉ theo tháng</th>
+            
         </thead>';
 
     while($row = $res->fetch_object()){
@@ -116,7 +128,7 @@ if($rows > 0){
         
         if($row->allowed_days == 0){
             
-            $allowed = "Indefinite";
+            $allowed = "Không quy định";
             
         }else{
             
@@ -131,7 +143,7 @@ if($rows > 0){
             $type = $row->leave_type;
         }
         
-        echo "<tr><td>$row->leave_id</td>
+        echo "<tr><td>$row->id</td>
             
                 <td>".ucfirst($type)."</td>
                     
@@ -139,7 +151,7 @@ if($rows > 0){
                 
                 <td>$row->allowed_monthly_days</td>
                     
-              <td>$days</td></tr>";
+              </tr>";
     }
     
     echo '</table></div>';

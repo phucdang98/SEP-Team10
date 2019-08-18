@@ -7,7 +7,7 @@
 
         <ul class="footer-list text-center">
 
-            <li><a href="about.php">About Leave Manager</a></li>
+            <li><a href="about.php">Giới thiệu</a></li>
 
 
         </ul>
@@ -19,7 +19,7 @@
 
         <ul class="footer-list text-center">
 
-            <li><a href="members.php">Group Members</a></li>
+            <li><a href="members.php">Thành viên</a></li>
 
 
 
@@ -33,7 +33,7 @@
 <div class="row">
 
 <div class="col-12">
-    <h6 class="text-center mt-3">Leave Manager &copy; <?php echo date('Y'); ?>. 
+    <h6 class="text-center mt-3">Quản lý nghỉ phép &copy; <?php echo date('Y'); ?>. 
         All rights reserved</h6>
 
 </div>

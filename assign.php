@@ -40,10 +40,8 @@ if($result->num_rows > 0){
 
             <form action='process.php' method='post'>
 
-            <p class='alert alert-warning'>There is no user who's been assigned
-            as supervisor. You can either choose a user from your registered 
-            staff or create a new user with supervisor role</p>
-            <label for='select'>Choose staff to make supervisor</label>
+            <p class='alert alert-warning'>Chưa có dữ liệu người quản lý. Bạn có thể chọn một nhân viên để cấp quyền làm quản lý</p>
+            <label for='select'>Chọn nhân viên để cấp quyền</label>
                 <select name='make-supervisor' class='form-control w-50' id='select'>";
         while($row = $result->fetch_object()){
             
@@ -63,7 +61,7 @@ if($result->num_rows > 0){
         
     }
 }else{
-    echo '<h1 class="text-center">No staff available for assignment</h1>'
+    echo '<h1 class="text-center">Không có dữ liệu nhân viên</h1>'
     . '<p>There is no currently a member of staff who is not assigned to a supervisor. '
             . 'Keep up the good work!</p>';
 }
