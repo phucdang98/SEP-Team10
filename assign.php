@@ -8,11 +8,11 @@ if($result->num_rows > 0){
 
     if($res->num_rows > 0){
 
-        echo "<h1 class='text-center hide'>Assign Supervisor</h1>
+        echo "<h1 class='text-center hide'>Xác thực nhân viên</h1>
 
             <form action='process.php' method='post' class='mb-5'>
 
-                <label for='users'>Select user to assign supervisor</label>
+                <label for='users'>Chọn nhân viên</label>
                 <select name='assign-to' class='form-control w-50' id='users' required>";
         while($row = $result->fetch_object()){
             
@@ -22,7 +22,7 @@ if($result->num_rows > 0){
             
         echo "</select><hr>
         
-        <label for='supervisors'>Choose Supervisor</label><br>
+        <label for='supervisors'>Nhân viên quản lý</label><br>
                 <select name='supervisor' class='form-control' id='supervisors' required>";
         while($rows = $res->fetch_object()){
             
@@ -31,17 +31,17 @@ if($result->num_rows > 0){
         
         echo '</select><hr>
             <button class="btn btn-warning" name="assign-super" type="submit">
-            Add Supervisor
+            Xác thực
             </button></form>';
         
     }else{
         
-        echo "<h1 class='text-center hide'>Assign Supervisor</h1>
+        echo "<h1 class='text-center hide'>Xác thực nhân viên</h1>
 
             <form action='process.php' method='post'>
 
             <p class='alert alert-warning'>Chưa có dữ liệu người quản lý. Bạn có thể chọn một nhân viên để cấp quyền làm quản lý</p>
-            <label for='select'>Chọn nhân viên để cấp quyền</label>
+            <label for='select'>Chọn nhân viên để xác thực</label>
                 <select name='make-supervisor' class='form-control w-50' id='select'>";
         while($row = $result->fetch_object()){
             

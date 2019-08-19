@@ -3,12 +3,12 @@
 $result = $db_con->query("SELECT * FROM employee WHERE supervisor IS NULL OR supervisor = ''");
 
 if($result->num_rows > 0){
-    echo "<h1 class='text-center hide'>Assign Supervisor Role</h1>
+    echo "<h1 class='text-center hide'>Cấp quyền quản lý</h1>
 
             <form action='process.php' method='post'>
 
             
-            <label for='select'>New supervisor role</label>
+            <label for='select'>Cấp quyền quản lý mới</label>
                 <select name='make-supervisor' class='form-control w-50' id='select'>";
         while($row = $result->fetch_object()){
             
@@ -19,12 +19,12 @@ if($result->num_rows > 0){
         echo '</select><br>
             <input type="hidden" name="tab" value="7">
             <button class="btn btn-default" name="make-super" type="submit">
-            Assign role
+            Cấp quyền
             </button></form><hr>
            </select><br>
             <button class="btn btn-default" id="btn-toggle">
             <i class="fa fa-plus-circle fa-lg mr-2"></i> 
-            Register Supervisor
+            Đăng ký quản lý mới
             </button>
              <div class="container mx-md-4 hide" id="add">
              <h4 class="text-center mb-2">Register New Supervisor</h4>';
@@ -40,15 +40,15 @@ $res = $db_con->query("SELECT * FROM employee WHERE supervisor <> 'N/A'");
 if($res->num_rows > 0){
 
     echo '<div class="card mb-md-5">
-    <h1 class="text-md text-center">New Supervisor Role</h1>
+    <h1 class="text-md text-center">Quản lý mới</h1>
         <table class="table table-bordered table-responsive-sm w-100">
 
             <thead class="thead-dark">
-                <th>Staff ID</th>
-                <th>Username</th>
-                <th>Full Name</th>
-                <th>Date Registered</th>
-                <th>Action</th>
+                <th>Mã nhân viên</th>
+                <th>Tên đăng nhập</th>
+                <th>Họ Tên</th>
+                <th>Ngày đăng ký</th>
+                <th>Hành động</th>
             </thead>';
 
     $here = $_SERVER["PHP_SELF"];
@@ -71,7 +71,7 @@ if($res->num_rows > 0){
                     <td><form action="$here?tab=7" method="post">
                         <input name="staff_id" value="$row->staff_id" type="hidden">
                         <input type="hidden" name="id" value="$row->id">
-                        <button class="btn success-btn" name='make_super'>Make Supervisor</button>
+                        <button class="btn success-btn" name='make_super'>Cấp quản lý</button>
                         </form>
                     </td>
                    

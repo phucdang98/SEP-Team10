@@ -343,12 +343,12 @@ if(isset($_POST['register'])){
                       
                $from = "admin@leavemanager.com";
                
-               if(mail($to, $subject, $message, $from)){
+              // if(mail($to, $subject, $message, $from)){
                    
                     $msg= urlencode("Leave has been accepted");
 
-                    redirect_user("dashboard.php?tab=7&msg=$msg");
-               }
+                    redirect_user("admin.php?tab=3&msg=$msg");
+              // }
                
            }else{
                
@@ -609,4 +609,3 @@ if(isset($_POST['register'])){
 }else{ 
     redirect_user("404.php");
 }
-

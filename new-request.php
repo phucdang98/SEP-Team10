@@ -36,6 +36,8 @@ if($result->num_rows > 0){
         break;
         case "emergency": $type = "Nghỉ Khẩn cấp";
         break;
+        case "others": $type = "Khác";
+        break;
         default : "Unknown";
         break;
     
@@ -59,4 +61,6 @@ if($result->num_rows > 0){
         <small class='error' id='error'></small>
         <hr>
         <button class='btn btn-warning' type='submit' name='request'>
-        Nộp đơn xin</button></form>";
+        Nộp đơn xin</button>
+        </form>";
+        

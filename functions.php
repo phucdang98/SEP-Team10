@@ -369,14 +369,14 @@ function is_session_inplace($session_var) {
  * headers such as From, cc and Bcc.
  * @return boolean Returns true if message is sent. False otherwise
  */
-function mail_user($user_email,$subject,$msg,$headers = NULL){
+// function mail_user($user_email,$subject,$msg,$headers = NULL){
     
-    $add_h = var_set($headers) ? $headers : "";
+//     $add_h = var_set($headers) ? $headers : "";
     
-    if(mail($to, $subject, $msg, $from)){
-        return TRUE;
-    }else{
-        return FALSE;
-    }
+//     if(mail($to, $subject, $msg, $from)){
+//         return TRUE;
+//     }else{
+//         return FALSE;
+//     }
     
-}
+// }

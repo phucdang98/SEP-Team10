@@ -9,7 +9,8 @@ echo '<div class="card mb-md-5">
 
             <thead class="thead-dark">
                 <th>ID</th>
-                <th>Kiểu</th>
+                <th>Hình thức nghỉ</th>
+                
                 <th>Mã nhân viên</th>
                 <th>Bắt đầu</th>
                 <th>Kết thúc</th>
@@ -58,6 +59,8 @@ if($result->num_rows > 0){
 
                     <td>$row->leave_id</td>
                     <td>$type</td>
+                    
+
                     <td>
                         $row->staff_id
                     </td>

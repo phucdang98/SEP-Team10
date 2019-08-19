@@ -5,87 +5,48 @@
  * leaves and pending leaves
  */
 
-$result = $db_con->query("SELECT * FROM leave_applications");
+$result = $db_con->query("SELECT * FROM accepted_leaves");
 
-echo '<div class="card mb-md-5">
-        <h1 class="text-center mb-4 text-md">Thống kê nghỉ phép nhân viên</h1>
-        <table class="table table-bordered table-responsive-sm w-100">
+        echo '<div class="tab-pane fade show p-5" role="tabpanel"
+                aria-labelledby="accepted-tab" id="accepted">';
 
-            <thead class="thead-dark">
-                <th>Mã đơn nghỉ</th>
-                <th>Mã nhân viên</th>
-                <th>Hình thức nghỉ</th>
-                
-                <th>Bắt đầu nghỉ</th>
-                <th>Hạn nghỉ</th>
-                <th>Gửi đơn ngày</th>
-                <th>Trạng thái</th>
-            </thead>';
+        if($result->num_rows > 0){
 
-if($result->num_rows > 0){
+            echo '<div class="card">
+                    <table class="table table-bordered table-responsive-sm w-100">
 
-    while ($row = $result->fetch_object()){
-    
-        if($row->action == 'accept'){
+                        <thead class="thead-dark">
+                            <th>Mã đơn nghỉ</th>
+                            <th>Kiểu đơn nghỉ</th>
+                            <th>Nhân viên</th>
+                            <th>Số ngày</th>
+                            <th>Ngày xét duyệt</th>
+                        </thead>';
 
-        $status = "<button class='btn success-btn'>"
-                . "<i class='fa fa-check pr-2'></i> Accepted</button>";
-        }elseif($row->action == "reject"){
+            while($row = $result->fetch_object()){
 
-            $status = "<button class='btn danger-btn'>"
-                    . "<i class='fa fa-remove pr-2'></i> Rejected</button>";
-        }else{
-            $status = "<button class='btn pending-btn'>"
-                    . "<i class='fa fa-refresh pr-2'></i> Pending</button>";
+                $type = ucwords(implode(' ',explode('_',$row->leave_type)));
+
+                echo "<tr>
+                        <td>$row->leave_id</td>
+
+                        <td>$type</td>
+                        <td>$row->staff_id</td>
+
+                        <td>$row->num_days</td>
+
+                        <td>
+                            $row->date_accepted
+                        </td>
+                    </tr>";
+            }
+
+        echo "</table>
+           </div>";
+
+        }else {
+            echo '<h2 class="text-center mb-5">Không có dữ liệu</h2>';
         }
 
-        if($row->leave_type == "short_embark_disembark"){
-
-            $type = "Short Embarkation/Disembarkation Leave";
-
-        }elseif ($row->leave_type == "long_embark_disembark") {
-
-            $type = "Long Embarkation/Disembarkation Leave";
-
-        }  else {
-
-            $type = ucfirst($row->leave_type)." Leave";
-
-        }
-
-        $student = <<<STAFF
-                <tr>
-
-                    <td>$row->leave_id</td>
-                    <td>$row->staff_id</td>
-
-                    <td>$type</td>
-                   
-
-                    
-                      <td>$row->leave_start_date</td>
-                   
-                    <td>
-                        $row->leave_end_date
-                    </td>
-                    
-                    
-                    <td>
-                        $row->date_requested
-                    </td>
-                     <td>
-                        $status
-                     </td>
-                </tr>
-STAFF;
-
-    echo $student; 
-    }
-     
-  
- }else {
-        echo '<tr><td class="text-center mb-m-2">No leave data available</td></tr>';
-    }
-
-echo '</table></div>';
+        echo ' </div>';
 

@@ -33,11 +33,11 @@ if(isset($_SESSION['admin-user']) && $_SESSION['admin-user'] !== ""){
 
         $leave_types = ['sick'=>"Nghỉ bệnh",'maternity'=>'Nghỉ thai sản','study'=>'Nghỉ tập huấn','emergency'=>'Nghỉ đột xuất'];
     
-        echo "<h1 class='text-center hide'>New Leave Type</h1>
+        echo "<h1 class='text-center hide'>Hình thức nghỉ mới</h1>
 
                 <form action='leaves.php' method='post' class='mb-5'>
                 
-                    <label for='leave-type'>Leave Type</label><br>
+                    <label for='leave-type'>Hình thức nghỉ</label><br>
                     <select name='leave_type' id='leave-type' class='selectable' required>
                         <option value=''>---Select---</option>";
         
@@ -56,31 +56,27 @@ if(isset($_SESSION['admin-user']) && $_SESSION['admin-user'] !== ""){
                     
                     echo "</select><hr>
                 
-                    <label for='title'>Allowed Days</label><br>
+                    <label for='title'>Ngày được phép nghỉ thường niên</label><br>
                             
                     <input type='number' min='0' name='allowed_days' id='days' required><br>
                     <div id='hint' class='hide text-red'>
                     
                         <ul style='list-style-type:none;font-size:13px;'><br>
-                            <b>Note:</b>
-                            <li> 0 means Indefinite</li>
-                            <li> 1 or more convey actual days</li>
+                            <b>Chú thích:</b>
+                            <li> 0 nghĩa là không xác định</li>
+                            <li> 1 trở lên là quy định</li>
                         </ul>
                     </div><hr>
-                    <label for='title'>Allowed Monthly Days</label><br>
+                    <label for='title'>Số ngày được phép nghỉ trong tháng</label><br>
                             
                     <input type='number' min='1' name='allowed_monthly_days' required>
                     
                     <input type='hidden' name='leave_id' value='$leave_id'>
                     <input type='hidden' name='auto_update' value='$auto_date'>
                     <hr>
-                    <label>Staff Level</label><br>
-                    <select name='staff_level' class='selectable'>
-                        <option value='supervisor'>Supervisor</option>
-                        <option value='non-supervisor'>Non-supervisor</option>
-                    </select>
+                    
 
-                    <hr><button class='btn btn-primary ml-md-5' name='new_leave'>Publish Leave</button>
+                    <hr><button class='btn btn-primary ml-md-5' name='new_leave'>Công bố</button>
 
                 </form><hr><br>";
 

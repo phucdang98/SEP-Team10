@@ -1,5 +1,11 @@
 <?php
-include_once("functions.php");
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
+
+// require 'PHPMailer/src/Exception.php';
+// require 'PHPMailer/src/PHPMailer.php';
+// require 'PHPMailer/src/SMTP.php';
+ include_once("functions.php");
 
 if(isset($_POST['accept'])){
         
@@ -91,12 +97,12 @@ if(isset($_POST['accept'])){
                $from = "HR: <phucdang17798@gmail.com>";
                
                
-               if(mail($to, $subject, $msg, $from)){
+               // if(PHPMailer($to, $subject, $msg, $from)){
                     
-                    $msg= urlencode("Leave recommendation successful");
+                   $msg= urlencode("Leave recommendation successful");
 
-                    redirect_user("dashboard.php?tab=7&msg=$msg");
-               }
+                   redirect_user("dashboard.php?tab=7&msg=$msg");
+               // }
                
                 
            } else {
@@ -192,9 +198,8 @@ if(isset($_POST['accept'])){
                  
                $msg = wordwrap($message,70,"\r\n");
                       
-               $from = "";
-               mail(to, subject, message);
-              
+               $from = "HR: <hr@leavemanager.com>";
+               
                if(mail($to, $subject, $msg, $from)){
                                       
                     $msg = urlencode("Leave has been rejected");

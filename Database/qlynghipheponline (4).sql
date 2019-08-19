@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 18, 2019 lúc 01:28 PM
+-- Thời gian đã tạo: Th8 19, 2019 lúc 05:17 PM
 -- Phiên bản máy phục vụ: 10.1.32-MariaDB
 -- Phiên bản PHP: 7.2.5
 
@@ -37,38 +37,6 @@ CREATE TABLE `accepted_leaves` (
   `date_accepted` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Đang đổ dữ liệu cho bảng `accepted_leaves`
---
-
-INSERT INTO `accepted_leaves` (`id`, `leave_id`, `staff_id`, `leave_type`, `num_days`, `date_accepted`) VALUES
-(13, 171521752477, 8201914062337, 'annual', 300, '14-08-2019'),
-(14, 201521664164, 8201914062414, 'maternity', 2, '14-08-2019'),
-(15, 191521664208, 8201914062305, 'study', 1, '15-08-2019'),
-(16, 201521664189, 8201914062305, 'paternity', 2, '15-08-2019'),
-(17, 111521664139, 8201914062337, 'sick', 8, '16-08-2019'),
-(18, 201521664164, 8201914062337, 'maternity', 2, '16-08-2019'),
-(19, 191521664227, 8201914062337, 'emergency', 1, '16-08-2019'),
-(20, 191521664208, 8201914062337, 'study', 1, '16-08-2019'),
-(21, 201521664164, 8201914062337, 'maternity', 2, '16-08-2019'),
-(22, 111521664139, 8201914062337, 'sick', 1, '16-08-2019'),
-(23, 111521664139, 8201914062414, 'sick', 1, '16-08-2019'),
-(24, 111521664139, 8201914062414, 'sick', 1, '16-08-2019'),
-(25, 201521664164, 8201914062414, 'maternity', 1, '16-08-2019'),
-(26, 191521664208, 8201914062414, 'study', 1, '16-08-2019'),
-(27, 191521664227, 8201914062414, 'emergency', 2, '16-08-2019'),
-(28, 191521664227, 8201914062337, 'emergency', 1, '18-08-2019'),
-(29, 111521664139, 8201914062414, 'sick', 6, '18-08-2019'),
-(30, 111521664139, 8201918111611, 'sick', 6, '18-08-2019'),
-(31, 111521664139, 8201918111330, 'sick', 6, '18-08-2019'),
-(32, 191521664208, 8201918111330, 'study', 7, '18-08-2019'),
-(33, 1111, 8201914062305, 'sick', 1, '18-08-2019'),
-(34, 3333, 8201914062305, 'study', 11, '18-08-2019'),
-(35, 2222, 8201914062414, 'maternity', 1, '18-08-2019'),
-(36, 3333, 8201914062414, 'study', 1, '18-08-2019'),
-(37, 4444, 8201914062414, 'emergency', 1, '18-08-2019'),
-(38, 2222, 8201914062305, 'maternity', 1, '18-08-2019');
-
 -- --------------------------------------------------------
 
 --
@@ -93,7 +61,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `admin_id`, `title`, `fname`, `lname`, `username`, `password`, `email`, `phone`, `date_registered`) VALUES
-(1, 152122333134, 'Mr', 'Main', 'Administrator', 'admin', '$2y$10$p3d1dr/FuAkfqQ30EAuqlumWF7c9vy4b0kKkSpx2.janWhzBU5nu6', 'phucdang17798@gmail.com', 500000000, '2019-08-10');
+(1, 222222, 'Mr', 'Main', 'Administrator', 'admin', '$2y$10$p3d1dr/FuAkfqQ30EAuqlumWF7c9vy4b0kKkSpx2.janWhzBU5nu6', 'phucdang17798@gmail.com', 500000000, '2019-08-10');
 
 -- --------------------------------------------------------
 
@@ -122,11 +90,12 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `staff_id`, `title`, `fname`, `lname`, `username`, `password`, `email`, `country_code`, `phone`, `supervisor`, `staff_level`, `date_registered`) VALUES
-(8, 8201914062305, 'Mr', 'Phúc', 'Đặng', 'phuc98', '$2y$10$1P8kzdgyovmjy7uBFt.RFu2oLlILMJAfJUwPoUXHun1d3JDXeGkFu', 'phuc@gmail.com', '+84', 1234567, 'N/A', 'non-supervisor', '2019-08-14'),
-(9, 8201914062337, 'Mr', 'Đạo', 'Trường', 'dao98', '$2y$10$uq3X5wvp6vKfZ5XH6xpidOmCscgvuMw8M9FGxcJ3rKFcUPRNx/Hri', 'dao@gmail.com', '+84', 1245678, '', 'non-supervisor', '2019-08-14'),
-(10, 8201914062414, 'Mr', 'Tiêu', 'Nghị', 'nghi98', '$2y$10$8CjiY8AHFTkisV6qATu6ZeJ.reOLB.BN3N.bKzItiW6.3FbkM1obK', 'nghi@gmail.com', '+84', 216549, '', 'non-supervisor', '2019-08-14'),
-(12, 8201918111330, 'Mr', 'Phúc', 'Đặng', 'supervisor', '$2y$10$d9Dr7sS2pWyqekUn5V0JCeazOjtmpFqBqtC9/9Sc5JONfI/PwhU5G', 'phucdang17798@gmail.com', '+1', 12345678, 'N/A', 'supervisor', '2019-08-18'),
-(13, 8201918111611, 'Mr', 'Đinh', 'Tài', 'tai98', '$2y$10$0w5utr2/MS90cfJjgFfVXeVJTesQof9fLmbWGfVAdN.BcAGzfTvJu', 'tai@gmail.com', '+1', 126546549, 'N/A', 'non-supervisor', '2019-08-18');
+(8, 160114, 'Mr', 'Phúc', 'Đặng', 'phuc98', '$2y$10$1P8kzdgyovmjy7uBFt.RFu2oLlILMJAfJUwPoUXHun1d3JDXeGkFu', 'phuc@gmail.com', '+84', 1234567, 'N/A', 'non-supervisor', '2019-08-14'),
+(9, 161505, 'Mr', 'Đạo', 'Trường', 'dao98', '$2y$10$uq3X5wvp6vKfZ5XH6xpidOmCscgvuMw8M9FGxcJ3rKFcUPRNx/Hri', 'dao@gmail.com', '+84', 1245678, '', 'non-supervisor', '2019-08-14'),
+(10, 160000, 'Mr', 'Tiêu', 'Nghị', 'nghi98', '$2y$10$8CjiY8AHFTkisV6qATu6ZeJ.reOLB.BN3N.bKzItiW6.3FbkM1obK', 'nghi@gmail.com', '+84', 216549, '', 'non-supervisor', '2019-08-14'),
+(12, 111111, 'Mr', 'Phúc', 'Đặng', 'supervisor', '$2y$10$d9Dr7sS2pWyqekUn5V0JCeazOjtmpFqBqtC9/9Sc5JONfI/PwhU5G', 'phucdang17798@gmail.com', '+1', 12345678, 'N/A', 'supervisor', '2019-08-18'),
+(13, 160014, 'Mr', 'Đinh', 'Tài', 'tai98', '$2y$10$0w5utr2/MS90cfJjgFfVXeVJTesQof9fLmbWGfVAdN.BcAGzfTvJu', 'tai@gmail.com', '+1', 126546549, 'N/A', 'non-supervisor', '2019-08-18'),
+(15, 164264, 'Mr', 'Trần', 'Minh', 'minh98', '$2y$10$DF7Jcp4jlf6VS6ehRqE3QO5MwzWRuSW4JA2Gs1OtRcJAvQmSn25AS', 'minh@gmail.com', '+84', 56452, 'supervisor', 'non-supervisor', '2019-08-19');
 
 -- --------------------------------------------------------
 
@@ -175,7 +144,8 @@ INSERT INTO `leaves` (`id`, `leave_id`, `leave_type`, `allowed_days`, `current_d
 (1, 1111, 'sick', 0, 0, 15, 'non-supervisor', 1524255729),
 (2, 2222, 'maternity', 90, 90, 30, 'non-supervisor', 1524255754),
 (3, 3333, 'study', 14, 14, 14, 'non-supervisor', 1524255798),
-(4, 4444, 'emergency', 30, 30, 7, 'non-supervisor', 1524255817);
+(4, 4444, 'emergency', 30, 30, 7, 'non-supervisor', 1524255817),
+(5, 5555, 'others', 15, 15, 15, 'non-supervisor', 1568817315);
 
 -- --------------------------------------------------------
 
@@ -199,18 +169,14 @@ CREATE TABLE `leave_applications` (
 --
 
 INSERT INTO `leave_applications` (`id`, `leave_id`, `staff_id`, `leave_type`, `leave_start_date`, `leave_end_date`, `action`, `date_requested`) VALUES
-(36, 201521664164, 8201914062337, 'maternity', '2019-08-16', '2019-08-17', 'accept', '16-08-2019'),
-(37, 191521664208, 8201914062337, 'study', '2019-08-16', '2019-08-17', 'accept', '16-08-2019'),
-(38, 191521664227, 8201914062337, 'emergency', '2019-08-16', '2019-08-17', 'accept', '16-08-2019'),
-(42, 191521664208, 8201918111330, 'study', '2019-08-18', '2019-08-25', 'accept', '18-08-2019'),
-(43, 1111, 8201914062305, 'sick', '2019-08-18', '2019-08-19', 'accept', '18-08-2019'),
-(44, 3333, 8201914062305, 'study', '2019-08-20', '2019-08-31', 'accept', '18-08-2019'),
-(45, 2222, 8201914062414, 'maternity', '2019-08-18', '2019-08-19', 'accept', '18-08-2019'),
-(46, 3333, 8201914062414, 'study', '2019-08-22', '2019-08-23', 'accept', '18-08-2019'),
-(47, 4444, 8201914062414, 'emergency', '2019-08-30', '2019-08-31', 'accept', '18-08-2019'),
-(48, 2222, 8201914062305, 'maternity', '2019-08-24', '2019-08-25', 'accept', '18-08-2019'),
-(49, 4444, 8201914062305, 'emergency', '2019-08-22', '2019-08-31', NULL, '18-08-2019'),
-(50, 1111, 8201914062337, 'sick', '2019-08-18', '2019-08-19', NULL, '18-08-2019');
+(61, 2222, 8201914062305, 'maternity', '2019-08-23', '2019-08-25', 'accept', '19-08-2019'),
+(62, 3333, 8201914062305, 'study', '2019-08-23', '2019-08-31', 'accept', '19-08-2019'),
+(63, 1111, 8201914062305, 'sick', '2019-08-23', '2019-08-25', 'accept', '19-08-2019'),
+(64, 1111, 8201914062414, 'sick', '2019-08-22', '2019-08-24', 'accept', '19-08-2019'),
+(65, 3333, 8201914062414, 'study', '2019-08-25', '2019-08-28', 'accept', '19-08-2019'),
+(66, 5555, 8201914062305, 'others', '2019-08-20', '2019-08-21', 'accept', '19-08-2019'),
+(67, 5555, 8201919164810, 'others', '2019-08-20', '2019-08-21', 'accept', '19-08-2019'),
+(68, 1111, 164264, 'sick', '2019-08-21', '2019-08-22', 'accept', '19-08-2019');
 
 -- --------------------------------------------------------
 
@@ -281,7 +247,26 @@ INSERT INTO `recommended_leaves` (`id`, `leave_id`, `leave_type`, `staff_id`, `r
 (43, 2222, 'maternity', 8201914062414, 'supervisor', 1, '', '18-08-2019', 'accepted'),
 (44, 3333, 'study', 8201914062414, 'supervisor', 1, '', '18-08-2019', 'accepted'),
 (45, 4444, 'emergency', 8201914062414, 'supervisor', 1, '', '18-08-2019', 'accepted'),
-(46, 2222, 'maternity', 8201914062305, 'supervisor', 1, '', '18-08-2019', 'accepted');
+(46, 2222, 'maternity', 8201914062305, 'supervisor', 1, '', '18-08-2019', 'accepted'),
+(47, 4444, 'emergency', 8201914062305, 'supervisor', 9, 'fhhsdgaskljfksj', '19-08-2019', 'accepted'),
+(48, 1111, 'sick', 8201914062337, 'supervisor', 1, 'fhhsdgaskljfksj', '19-08-2019', 'accepted'),
+(49, 1111, 'sick', 8201914062414, 'supervisor', 1, 'jgd', '19-08-2019', 'accepted'),
+(50, 1111, 'sick', 8201914062305, 'supervisor', 1, '', '19-08-2019', 'accepted'),
+(51, 2222, 'maternity', 8201914062305, 'supervisor', 2, '', '19-08-2019', 'accepted'),
+(52, 3333, 'study', 8201914062305, 'supervisor', 1, '', '19-08-2019', 'accepted'),
+(53, 4444, 'emergency', 8201914062305, 'supervisor', 5, '', '19-08-2019', 'accepted'),
+(54, 1111, 'sick', 8201914062337, 'supervisor', 1, '', '19-08-2019', 'accepted'),
+(55, 2222, 'maternity', 8201914062337, 'supervisor', 1, '', '19-08-2019', 'accepted'),
+(56, 3333, 'study', 8201914062337, 'supervisor', 2, '', '19-08-2019', 'accepted'),
+(57, 4444, 'emergency', 8201914062337, 'supervisor', 3, 'hgk', '19-08-2019', 'accepted'),
+(58, 2222, 'maternity', 8201914062305, 'supervisor', 2, '', '19-08-2019', 'accepted'),
+(59, 3333, 'study', 8201914062305, 'supervisor', 8, '', '19-08-2019', 'accepted'),
+(60, 1111, 'sick', 8201914062305, 'supervisor', 2, '', '19-08-2019', 'accepted'),
+(61, 1111, 'sick', 8201914062414, 'supervisor', 2, '', '19-08-2019', 'accepted'),
+(62, 5555, 'others', 8201914062305, 'supervisor', 1, '', '19-08-2019', 'accepted'),
+(63, 3333, 'study', 8201914062414, 'supervisor', 3, '', '19-08-2019', 'accepted'),
+(64, 5555, 'others', 8201919164810, 'supervisor', 1, '', '19-08-2019', 'accepted'),
+(65, 1111, 'sick', 164264, 'supervisor', 1, '', '19-08-2019', 'accepted');
 
 -- --------------------------------------------------------
 
@@ -294,7 +279,7 @@ CREATE TABLE `rejected_leaves` (
   `leave_id` bigint(20) NOT NULL,
   `staff_id` bigint(20) NOT NULL,
   `leave_type` varchar(250) NOT NULL,
-  `num_days` int(11) DEFAULT NULL,
+  `reason_reject` varchar(1000) DEFAULT NULL,
   `date_rejected` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -302,10 +287,10 @@ CREATE TABLE `rejected_leaves` (
 -- Đang đổ dữ liệu cho bảng `rejected_leaves`
 --
 
-INSERT INTO `rejected_leaves` (`id`, `leave_id`, `staff_id`, `leave_type`, `num_days`, `date_rejected`) VALUES
-(6, 201521664164, 3201821131600, 'maternity', NULL, '14-08-2019'),
-(7, 161521664278, 4201804045945, 'special', NULL, '14-08-2019'),
-(8, 111521833755, 3201821131600, 'sick', NULL, '14-08-2019');
+INSERT INTO `rejected_leaves` (`id`, `leave_id`, `staff_id`, `leave_type`, `reason_reject`, `date_rejected`) VALUES
+(6, 160114, 3201821131600, 'maternity', NULL, '14-08-2019'),
+(7, 160014, 4201804045945, 'special', NULL, '14-08-2019'),
+(8, 161505, 3201821131600, 'sick', NULL, '14-08-2019');
 
 -- --------------------------------------------------------
 
@@ -410,19 +395,19 @@ ALTER TABLE `user_leave_metadata`
 -- AUTO_INCREMENT cho bảng `accepted_leaves`
 --
 ALTER TABLE `accepted_leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `job_description`
@@ -434,13 +419,13 @@ ALTER TABLE `job_description`
 -- AUTO_INCREMENT cho bảng `leaves`
 --
 ALTER TABLE `leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `leave_applications`
 --
 ALTER TABLE `leave_applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT cho bảng `password_recovery_meta`
@@ -452,7 +437,7 @@ ALTER TABLE `password_recovery_meta`
 -- AUTO_INCREMENT cho bảng `recommended_leaves`
 --
 ALTER TABLE `recommended_leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT cho bảng `rejected_leaves`

@@ -61,7 +61,7 @@ if(isset($_SESSION['admin-user']) && $_SESSION['admin-user'] !== ""){
 
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?tab=5">
-                <i class="fa fa-arrows"></i> Cấp quyền quản lý</a>
+                <i class="fa fa-arrows"></i> Xác nhận nhân viên</a>
             </li>
 
             <li class="nav-item">
