@@ -57,8 +57,7 @@ if(isset($_GET['action']) && $_GET['action'] == "login"){
 
         $tbl = "employee";
         
-        $account_trigger = "Chưa có tài khoản? <a href='register.php' class='text-sm'>"
-                . "Đăng ký ngay</a>";
+       
 
     }    
     
@@ -88,9 +87,7 @@ if(isset($_GET['action']) && $_GET['action'] == "login"){
     
     $tbl = "employee";
     
-    $account_trigger = "Chưa có tài khoản? <a href='register.php' class='text-sm'>"
-            . "Đăng ký</a>";
-
+   
 }    
 
 $part = <<<TY

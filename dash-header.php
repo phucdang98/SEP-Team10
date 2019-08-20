@@ -84,14 +84,14 @@ if(isset($_SESSION['staff-user']) && $_SESSION['staff-user'] !== ""){
                 </a>
             </li>
 
-            <li class="list-main">
+           <!--  <li class="list-main">
                 <a href="admin.php?tab=1">
                 <i class="fa fa-plus icon"></i>
                 <span class="extra-sm break">
                     Kiểu nghỉ mới
                 </span>
                 </a>
-            </li>
+            </li> -->
             <li class="list-main">
                 <a href="admin.php?tab=2">
                 <i class="fa fa-bell icon"></i>

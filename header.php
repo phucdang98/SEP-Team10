@@ -54,15 +54,9 @@ if(isset($_SESSION['admin-user']) && $_SESSION['admin-user'] !== ""){
                 <i class="fa fa-refresh"></i> Duyệt đơn</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="admin.php?tab=1">
-                <i class="fa fa-plus"></i> Tạo kiểu nghỉ phép mới</a>
-            </li>
+           
 
-            <li class="nav-item">
-                <a class="nav-link" href="admin.php?tab=5">
-                <i class="fa fa-arrows"></i> Xác nhận nhân viên</a>
-            </li>
+            
 
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?tab=4">
